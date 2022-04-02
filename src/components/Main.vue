@@ -3,10 +3,10 @@
         <h1>MAIN</h1>
         <ul>
             <li v-for="(element, index) in arrayMovies" :key="index">
-                <h2></h2>
-                <h2></h2>
-                <h2></h2>
-                <h2></h2>
+                <p>{{element.title}}</p>
+                <p>{{element.original_title}}</p>
+                <p>{{element.original_language}}</p>
+                <p>{{element.vote_average}}</p>
             </li>
         </ul>
     </main>

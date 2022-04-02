@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <Header />
-    <Main />
+    <Header  @searchUser="search"/>
+    <Main 
+      :arrayMovies="movies"
+    />
     <Footer />
   </div>
 </template>
@@ -18,6 +20,17 @@ export default {
     Header,
     Main,
     Footer
+  },
+  data: function(){
+    return{
+      searchedByUser: '',
+      movies: null
+    }
+  },
+  methods: {
+    search(moviesArray){
+      this.movies = moviesArray
+    }
   }
 }
 </script>

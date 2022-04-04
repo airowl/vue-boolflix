@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header  @searchUser="search"/>
+    <Header  @searchMovies="search" @searchSeries="search"/>
     <Main 
-      :arrayMovies="movies"
+      :result="resultBySearch"
     />
     <Footer />
   </div>
@@ -24,14 +24,23 @@ export default {
   data: function(){
     return{
       searchedByUser: '',
-      movies: null
+      movies: null,
+      series: null,
+      resultBySearch: null
     }
   },
   methods: {
-    search(moviesArray){
-      this.movies = moviesArray
+    search(moviesArray, seriesArray){
+      this.movies = moviesArray;
+      this.series = seriesArray
+      this.resultBySearch = this.movies.concat(this.series)
+    console.log(this.resultBySearch);
+      
     }
-  }
+  },
+  created(){
+
+}
 }
 </script>
 

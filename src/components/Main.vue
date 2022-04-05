@@ -2,11 +2,12 @@
     <main>
         <h1>MAIN</h1>
         <ul>
-            <li v-for="(element, index) in data" :key="index">
+            <li v-for="(element, index) in result" :key="index">
                 <p>{{element.title}}</p>
                 <p>{{element.original_title}}</p>
                 <p>
-                    <span class="flag-icon flag-icon-us"></span>
+                    {{element.original_language}}
+                    <country-flag :country="noSeeIt(element.original_language)" size="normal"/>
                 </p>
                 <p>{{element.vote_average}}</p>
             </li>
@@ -16,22 +17,27 @@
 
 <script>
 
-
 export default {
     name: 'mainContent',
     data: function(){
         return{
-            data: this.result
         }
     },
     props: {
         result: Array
     },
     created(){
-        console.table(this.data);
+
     },
     methods: {
-        
+        noSeeIt(stringLanguage){
+            const it = it;
+            const flag = document.querySelector('country-flag')
+            if (!flag.hasAttribute('country')) {
+                return it
+            }
+            return stringLanguage
+        }
             
     },
     computed: {

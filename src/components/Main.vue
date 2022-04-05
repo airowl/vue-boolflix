@@ -7,9 +7,11 @@
                 <p>{{element.original_title}}</p>
                 <p>
                     {{element.original_language}}
-                    <country-flag :country="noSeeIt(element.original_language)" size="normal"/>
+                    <country-flag :country="element.original_language" size="normal"/>
                 </p>
                 <p>{{element.vote_average}}</p>
+                <img :src="'https://image.tmdb.org/t/p/' + 'w300/' + element.poster_path" alt="">
+                <p>{{element.poster_path}}</p>
             </li>
         </ul>
     </main>
@@ -30,14 +32,6 @@ export default {
 
     },
     methods: {
-        noSeeIt(stringLanguage){
-            const it = it;
-            const flag = document.querySelector('country-flag')
-            if (!flag.hasAttribute('country')) {
-                return it
-            }
-            return stringLanguage
-        }
             
     },
     computed: {

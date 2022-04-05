@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <a class="navbar-brand">LOGO</a>
                 <div class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model="userInput" @keyup="apiMovies(); apiSeries()" >
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model="userInput" @keyup="apiMovies(); apiSeries()">
                     <button class="btn btn-outline-success" @click="apiMovies(); apiSeries()">Search</button>
                 </div>
                 <h1>{{userInput}}</h1>

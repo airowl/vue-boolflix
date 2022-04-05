@@ -2,7 +2,7 @@
     <main>
         <h1>MAIN</h1>
         <ul>
-            <li v-for="(element, index) in result" :key="index">
+            <li v-for="(element, index) in data" :key="index">
                 <p>{{element.title}}</p>
                 <p>{{element.original_title}}</p>
                 <p>

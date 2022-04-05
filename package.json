@@ -13,7 +13,8 @@
     "core-js": "^3.8.3",
     "flag-icons": "^6.1.1",
     "flag-icons-svg": "^0.0.3",
-    "vue": "^2.6.14"
+    "vue": "^2.6.14",
+    "vue-country-flag": "^2.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

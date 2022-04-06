@@ -1,6 +1,7 @@
 <template>
     <main>
-        <h1>MAIN</h1>
+        <h1>...</h1>
+        <Cover />
         <ul>
             <li v-for="(element, index) in result" :key="index">
                 <p>{{element.title}}</p>
@@ -18,9 +19,13 @@
 </template>
 
 <script>
+import Cover from './Cover.vue'
 
 export default {
     name: 'mainContent',
+    components: {
+        Cover
+    },
     data: function(){
         return{
         }
@@ -47,6 +52,7 @@ export default {
 <style lang="scss" scoped>
 
     main{
-        border: 3px solid red;
+        background-color: #564d4d;
     }
+
 </style>

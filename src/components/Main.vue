@@ -9,8 +9,8 @@
                     {{element.original_language}}
                     <country-flag :country="element.original_language" size="normal"/>
                 </p>
-                <p>{{element.vote_average}}</p>
-                <img :src="'https://image.tmdb.org/t/p/' + 'w300/' + element.poster_path" alt="">
+                <font-awesome-icon icon="fa-solid fa-star" v-for="(element, index) in voteIngers(element.vote_average)" :key="index"/>
+                <img :src="'https://image.tmdb.org/t/p/' + 'w300/' + element.poster_path" :alt="element.title">
                 <p>{{element.poster_path}}</p>
             </li>
         </ul>
@@ -32,10 +32,13 @@ export default {
 
     },
     methods: {
-            
+        voteIngers(vote){
+            const voteInt = vote / 2;
+            return parseInt(voteInt);
+        }
     },
     computed: {
-            
+        
     }
 }
 </script>
@@ -47,10 +50,3 @@ export default {
         border: 3px solid red;
     }
 </style>
-
-
-//! dobbiamo inserire al posto della stringa lingua, la bandiare della linqua
-//* prendiamo la stringa e facciamo una verifica con una condizione
-//* se la stringa statica è incluso nella lista delle bandiere
-//* inserisci nel class dello span la stringa
-//* altrimenti metti una stringa generale (per i paesi di cui non dispongo la bandiera)

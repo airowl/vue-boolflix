@@ -1,12 +1,13 @@
 <template>
     <div class="cover col-12 col-sm-6 col-md-3 col-xxl-2">
-        <img :src="'https://image.tmdb.org/t/p/' + 'w342/' + imgPoster" :alt="title">
+        <!--<img :src="'https://image.tmdb.org/t/p/' + 'w500/' + imgPoster" :alt="title">
         <div class="text-cover">
             <p><strong>Titolo:</strong> {{title}}</p>
             <p><strong>Titolo Originale:</strong> {{originalTitle}}</p>
             <p><strong>Voto:</strong> <font-awesome-icon icon="fa-solid fa-star" v-for="n in voteIngers(voteAverage)" :key="n"/></p>
             <p><strong>Overview:</strong> {{overview}}</p>
-        </div>
+        </div>-->
+        
     </div>
 </template>
 
@@ -14,12 +15,7 @@
 export default {
     name: 'showCover',
     props: {
-        title: String,
-        originalTitle: String,
-        originalLanguage: String,
-        voteAverage: Number,
-        imgPoster: String,
-        overview: String
+        moviesPopular: Object
     },
     methods: {
         voteIngers(vote){

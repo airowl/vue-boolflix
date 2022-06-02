@@ -5,6 +5,7 @@
     />
     <Main 
       :result="resultBySearch"
+      :moviesPopular="mostPopularMovies"
     />
     <Footer />
   </div>
@@ -28,7 +29,8 @@ export default {
       searchedByUser: '',
       movies: null,
       series: null,
-      resultBySearch: []
+      resultBySearch: [],
+      mostPopularMovies: null,
     }
   },
   methods: {
@@ -42,7 +44,9 @@ export default {
         axios.get('https://api.themoviedb.org/3/search/movie?api_key=9196a12671ed6b173a98229ed53f9ab4', { params: {query: input}} )
         .then((result) => {
             this.movies = result.data.results;
-            this.resultBySearch = [...this.movies, ...this.series];
+            console.log(result.data.results)
+            this.resultBySearch = [...this.movies];
+            console.log(this.resultBySearch)
         }).catch(function(error) {
                 console.error(error);
             }
@@ -52,7 +56,16 @@ export default {
         axios.get('https://api.themoviedb.org/3/search/tv?api_key=9196a12671ed6b173a98229ed53f9ab4', { params: {query: input}} )
         .then((result) => {
             this.series = result.data.results;
-            this.resultBySearch = [...this.movies, ...this.series];
+            this.resultBySearch = [...this.series];
+        }).catch(function(error){
+              console.error(error);
+            }
+        );
+    },
+    apiPopular(){
+        axios.get('https://api.themoviedb.org/3/movie/popular?api_key=9196a12671ed6b173a98229ed53f9ab4')
+        .then((result) => {
+            this.mostPopularMovies = result.data.results;
         }).catch(function(error){
               console.error(error);
             }
@@ -60,7 +73,7 @@ export default {
     }
   },
   created(){
-
+    this.apiPopular();
   }
 }
 </script>

@@ -1,5 +1,7 @@
 # vue-boolflix
 
+Preview live: https://vue-boolflix.netlify.app/
+
 ## Project setup
 ```
 npm install

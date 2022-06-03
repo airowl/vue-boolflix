@@ -1,11 +1,12 @@
 <template>
     <main>
+
             <div class="thumbnail position-relative">
-                <img :src="'https://image.tmdb.org/t/p/w500/' + moviesPopular[0].backdrop_path" :alt="moviesPopular[0].original_title" class="w-100 "> 
+                <img :src="'https://image.tmdb.org/t/p/w500/' + result[0].backdrop_path" :alt="result[0].original_title" class="w-100 "> 
                 <div id="overlay"></div>
                 <div class="text position-absolute">
-                    <h1 class="mb-5">{{ moviesPopular[0].original_title }}</h1>
-                    <p class="mb-5">{{ moviesPopular[0].overview }}</p>
+                    <h1 class="mb-5">{{ result[0].original_title }}</h1>
+                    <p class="mb-5">{{ result[0].overview }}</p>
                     <button type="button" class="btn btn-secondary">Play</button>
                     <button type="button" class="btn btn-secondary ms-5">More Info</button>
                 </div>
@@ -15,7 +16,7 @@
                 <h1>Most Popular</h1>
                 <div class="carousel">
                     <Cover 
-                        v-for="(movie, index) in moviesPopular"
+                        v-for="(movie, index) in result"
                         :key="index"
                         :moviePopular="movie"
                     />
@@ -29,7 +30,7 @@
 import Cover from './Cover.vue'
 
 export default {
-    name: 'mainContent',
+    name: 'mainContentSearch',
     components: {
         Cover
     },
@@ -38,12 +39,18 @@ export default {
         }
     },
     props: {
-        moviesPopular: Array
+        result: Array,
     },
     mounted(){
         
     },
     methods: {
+        //checkResultArray(){
+        //    if (result){
+        //        this.search = true
+        //    }
+        //    this.search = false
+        //}
     },
     computed: {
         

@@ -1,13 +1,10 @@
 <template>
-    <div class="cover col-12 col-sm-6 col-md-3 col-xxl-2">
-        <!--<img :src="'https://image.tmdb.org/t/p/' + 'w500/' + imgPoster" :alt="title">
+    <div class="cover col-12 col-sm-6 col-md-3 col-xxl-2" :style="{ backgroundImage: `url(${bgImage}${moviePopular.backdrop_path})`}">
         <div class="text-cover">
-            <p><strong>Titolo:</strong> {{title}}</p>
-            <p><strong>Titolo Originale:</strong> {{originalTitle}}</p>
-            <p><strong>Voto:</strong> <font-awesome-icon icon="fa-solid fa-star" v-for="n in voteIngers(voteAverage)" :key="n"/></p>
-            <p><strong>Overview:</strong> {{overview}}</p>
-        </div>-->
-        
+            <h6>{{moviePopular.original_title}}</h6>
+            <p>{{moviePopular.overview}}</p>
+            <p>Vote Average: {{moviePopular.vote_average}}</p>
+        </div>
     </div>
 </template>
 
@@ -15,13 +12,20 @@
 export default {
     name: 'showCover',
     props: {
-        moviesPopular: Object
+        moviePopular: Object
+    },
+    data: function(){
+        return{
+            bgImage: 'https://image.tmdb.org/t/p/w500/'
+        }
     },
     methods: {
         voteIngers(vote){
             const voteInt = vote / 2;
             return parseInt(voteInt);
         }
+    },
+    mounted(){
     }
 }
 </script>
@@ -29,30 +33,27 @@ export default {
 <style lang="scss" scoped>
     div.cover{
         color: white;
-        height: 25rem;
-        margin-bottom: 2rem;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%;
+        height: 10rem;
 
-        img{
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-
-        .text-cover{
-            width: 100%;
-            height: 100%;
-            background-color: black;
-            padding: 1rem;
-            overflow: scroll;
-            display: none;
+        &:not(:last-child){
+            margin-left: 1rem;
         }
 
         &:hover .text-cover{
-            display: block;
+            display: inline-block;
+            overflow-y: scroll;
+            scrollbar-width: none;
         }
 
-        &:hover img{
+        .text-cover{
+            background-color: rgba($color: #000000, $alpha: .5);
+            color: white;
+            padding: 1rem;
             display: none;
         }
+
     }
 </style>
